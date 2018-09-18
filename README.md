@@ -27,7 +27,7 @@ Contribuer (à l'attention des élèves et en français)
 Si vous souhaitez participer pour faire avancer le "projet" vous pouvez suivre ces 3 simples étapes :  
 - Faire les modifications en local sur votre machine
 - Compiler
-- Si tout est OK, submit une pull request [ici](https://help.github.com/articles/creating-a-pull-request/) et [ici](https://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/)
+- Si tout est OK, submit une pull request [ici](https://help.github.com/articles/creating-a-pull-request/) et [ici](https://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/)  
 Si vous avez du mal avec l'idée de faire une pull request, vous pouvez pour le moment nous donner vos modifications pour qu'on les push.  
 
 **__Attention quand même__**  
