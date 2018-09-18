@@ -36,7 +36,7 @@ Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même r�
 *_Quelques idées_*
 - Set une bloc reward aléatoire
 - Set un halving time différent
-- Mettre de meilleurs images que celles que je vais mettre
+- Mettre de meilleurs [images](https://github.com/Crypto-lyon/INSAcoin/tree/master/src/qt/res/images) que celles que je vais mettre
 - ...
 
 License
