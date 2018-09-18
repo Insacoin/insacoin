@@ -33,6 +33,11 @@ Si vous avez du mal avec l'idée de faire une pull request, vous pouvez pour le 
 **__Attention quand même__**  
 Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même réseau une fois les modifs compilées. Si vous êtes au moins deux à faire ça vous allez fork et devenir un réseau indépendant à-partir d'un certains moment, un nouveau coin mais qui partage une partie de l'histoire avec celui-ci (vous pourriez l'appeler INSAcoin cash).
 
+*_Quelques idées_*
+- Set une bloc reward aléatoire
+- Set un halving time différent
+- Mettre de meilleurs images que celles que je vais mettre
+- ...
 
 License
 -------
