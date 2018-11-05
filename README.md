@@ -14,9 +14,9 @@ On Debian 9 :
 ```
 git clone https://github.com/Crypto-lyon/INSAcoin && cd INSAcoin
 su -c 'apt install libssl1.0-dev libssl1.0.2 libssl1.1 libboost-all-dev miniupnpc build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils python3 software-properties-common libminiupnpc-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler wget git qt5-default && wget -qq https://raw.githubusercontent.com/Crypto-lyon/INSAcoin/master/cryptolyon/install_libdb4.8.sh && chmod +x install_libdb4.8.sh'
-su -c './install_libdb4.8.sh amd64' # Depending on your achitecture
+su -c './scripts/install_libdb4.8.sh amd64' # Depending on your achitecture
 # OR
-su -c './install_libdb4.8.sh i386' # Si vous êtes en 32bits
+su -c './scripts/install_libdb4.8.sh i386' # Si vous êtes en 32bits
 cd src && make -f makefile.unix
 cd .. && qmake && make
 ./insacoin-qt
