@@ -17,8 +17,8 @@ su -c 'apt install libssl1.0-dev libssl1.0.2 libssl1.1 libboost-all-dev miniupnp
 su -c './scripts/install_libdb4.8.sh amd64' # Depending on your achitecture
 # OR
 su -c './scripts/install_libdb4.8.sh i386' # Si vous êtes en 32bits
-cd src && make -f makefile.unix
-cd .. && qmake && make
+cd src && make -f makefile.unix -j 2
+cd .. && qmake && make -j 2
 ./insacoin-qt
 ```
 
