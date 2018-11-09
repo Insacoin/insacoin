@@ -51,11 +51,11 @@ $ brew install https://raw.github.com/mxcl/homebrew/master/Library/Formula/berke
 
 The rest of these commands are run inside brew interactive mode:
 ```
-/private/tmp/berkeley-db4-UGpd0O/db-4.8.30 $ cd ..
-/private/tmp/berkeley-db4-UGpd0O $ db-4.8.30/dist/configure --prefix=/usr/local/Cellar/berkeley-db4/4.8.30 --mandir=/usr/local/Cellar/berkeley-db4/4.8.30/share/man --enable-cxx
-/private/tmp/berkeley-db4-UGpd0O $ make
-/private/tmp/berkeley-db4-UGpd0O $ make install
-/private/tmp/berkeley-db4-UGpd0O $ exit
+$ brew install berkeley-db4
+```
+then :
+```
+$ brew link berkeley-db4 --force
 ```
 
 After exiting, you'll get a warning that the install is keg-only, which means it wasn't symlinked to `/usr/local`.  You don't need it to link it to build insacoin, but if you want to, here's how:
@@ -72,7 +72,7 @@ After exiting, you'll get a warning that the install is keg-only, which means it
 
 2.  Build insacoind:
 
-        ./autogen.sh
+        ./scripts/install_libdb4.8.sh
         ./configure
         make
 
