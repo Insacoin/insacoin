@@ -54,11 +54,7 @@ The rest of these commands are run inside brew interactive mode:
 $ brew install berkeley-db4
 ```
 then :
-```
-$ brew link berkeley-db4 --force
-```
 
-After exiting, you'll get a warning that the install is keg-only, which means it wasn't symlinked to `/usr/local`.  You don't need it to link it to build insacoin, but if you want to, here's how:
 
     $ brew link --force berkeley-db4
 
