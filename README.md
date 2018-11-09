@@ -1,104 +1,49 @@
-Insacoin Core integration/staging tree
-=====================================
+Insacoin
+================================
 
-https://insacoin.org
+https://crypto-lyon.fr
 
 What is Insacoin?
 ----------------
 
-Insacoin is an experimental new digital currency that enables instant payments to
-anyone, anywhere in the world. Insacoin uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. Insacoin Core is the name of open source
-software which enables the use of this currency.
+Insacoin is a coin forked from [Litecoin](https://github.com/litecoin-project/litecoin) and built during a lesson at [INSA lyon](https://www.insa-lyon.fr/). This project might be upgraded and updated by students and members of the association. 
 
-For more information, as well as an immediately useable, binary version of
-the Insacoin Core software, see https://insacoin.org
+Installation process
+--------------------
+On Debian 9 :
+```
+git clone https://github.com/Crypto-lyon/INSAcoin && cd INSAcoin
+su -c 'apt install libssl1.0-dev libssl1.0.2 libssl1.1 libboost-all-dev miniupnpc build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils python3 software-properties-common libminiupnpc-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler wget git qt5-default && wget -qq https://raw.githubusercontent.com/Crypto-lyon/INSAcoin/master/cryptolyon/install_libdb4.8.sh && chmod +x install_libdb4.8.sh'
+su -c './scripts/install_libdb4.8.sh amd64' # Depending on your achitecture
+# OR
+su -c './scripts/install_libdb4.8.sh i386' # Si vous êtes en 32bits
+./autogen.sh
+./configure
+make
+su -c 'make install'
+insacoin-qt
+```
+
+Contribuer (à l'attention des élèves et en français)
+----------------------------------------------------
+Si vous souhaitez participer pour faire avancer le "projet" vous pouvez suivre ces 3 simples étapes :  
+- Faire les modifications en local sur votre machine
+- Compiler
+- Si tout est OK, submit une pull request [ici](https://help.github.com/articles/creating-a-pull-request/) et [ici](https://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/)  
+Si vous avez du mal avec l'idée de faire une pull request, vous pouvez pour le moment nous donner vos modifications pour qu'on les push.  
+
+**__Attention quand même__**  
+Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même réseau une fois les modifs compilées. Si vous êtes au moins deux à faire ça vous allez fork et devenir un réseau indépendant à-partir d'un certains moment, un nouveau coin mais qui partage une partie de l'histoire avec celui-ci (vous pourriez l'appeler INSAcoin cash).
+
+*_Quelques idées_*
+- Set une bloc reward aléatoire
+- Set un halving time différent
+- Mettre de meilleurs [images](https://github.com/Crypto-lyon/INSAcoin/tree/master/src/qt/res/images) que celles que je vais mettre
+- ...
 
 License
 -------
 
-Insacoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Insacoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
-Development process
--------------------
-
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
-
-If it is a simple/trivial/non-controversial change, then one of the Insacoin
-development team members simply pulls it.
-
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[mailing list](https://groups.google.com/forum/#!forum/insacoin-dev).
-
-The patch will be accepted if there is broad consensus that it is a good thing.
-Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see [doc/coding.md](doc/coding.md)) or are
-controversial.
-
-The `master-0.10` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/insacoin-project/insacoin/tags) are created
-regularly to indicate new official, stable release versions of Insacoin.
-
-Testing
--------
-
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
-
-### Manual Quality Assurance (QA) Testing
-
-Large changes should have a test plan, and should be tested by somebody other
-than the developer who wrote the code.
-Creating a thread in the [Insacoin discussion forum](https://insacointalk.org/index.php?board=2.0) will allow the Insacoin
-development team members to review your proposal and to provide assistance with creating a test plan. 
-
-
-Translations
-------------
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
-
-We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
-Translations are converted to Insacoin periodically.
-
-Development tips and tricks
----------------------------
-
-**compiling for debugging**
-
-Run configure with the --enable-debug option, then make. Or run configure with
-CXXFLAGS="-g -ggdb -O0" or whatever debug flags you need.
-
-**debug.log**
-
-If the code is behaving strangely, take a look in the debug.log file in the data directory;
-error and debugging messages are written there.
-
-The -debug=... command-line option controls debugging; running with just -debug will turn
-on all categories (and give you a very large debug.log file).
-
-The Qt code routes qDebug() output to debug.log under category "qt": run with -debug=qt
-to see it.
-
-**testnet and regtest modes**
-
-Run with the -testnet option to run with "play insacoins" on the test network, if you
-are testing multi-machine code that needs to operate across the internet.
-
-If you are testing something that can run on one machine, run with the -regtest option.
-In regression test mode, blocks can be created on-demand; see qa/rpc-tests/ for tests
-that run in -regtest mode.
-
-**DEBUG_LOCKORDER**
-
-Insacoin Core is a multithreaded application, and deadlocks or other multithreading bugs
-can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
-CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
-are held, and adds warnings to the debug.log file if inconsistencies are detected.
