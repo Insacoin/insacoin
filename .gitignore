@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/litecoin
-src/litecoind
-src/litecoin-cli
-src/litecoin-tx
-src/test/test_litecoin
-src/qt/test/test_litecoin-qt
+src/insacoin
+src/insacoind
+src/insacoin-cli
+src/insacoin-tx
+src/test/test_insacoin
+src/qt/test/test_insacoin-qt
 
 # autoreconf
 Makefile.in
@@ -74,12 +74,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-litecoin-qt
-Litecoin-Qt.app
+insacoin-qt
+Insacoin-Qt.app
 
 # Unit-tests
 Makefile.test
-litecoin-qt_test
+insacoin-qt_test
 src/test/buildenv.py
 
 # Resources cpp

@@ -1,9 +1,9 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-#DEB_MAKE_CHECK_TARGET = test_litecoin
-#build/litecoind::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_litecoin)
+#DEB_MAKE_CHECK_TARGET = test_insacoin
+#build/insacoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_insacoin)
 
 DEB_INSTALL_EXAMPLES_bitcoind += debian/examples/*
 DEB_INSTALL_MANPAGES_bitcoind += debian/manpages/*

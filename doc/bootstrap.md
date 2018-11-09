@@ -25,24 +25,24 @@ The torrent client installed will recognize the download of the torrent file. Sa
 
 ![Fig2](img/bootstrap2.png)
 
-### Download the Blockchain from the LitecoinNode Project
+### Download the Blockchain from the InsacoinNode Project
 
-The Litecoin node project provides multiple and regulaly updated direct-link downloads. Copies of bootstrap.dat can be downloaded directly from servers provided by LitecoinNode, or be downloaded from a randomly selected server. All copies of boootstrap are updated at the maximum of every six months.
+The Insacoin node project provides multiple and regulaly updated direct-link downloads. Copies of bootstrap.dat can be downloaded directly from servers provided by InsacoinNode, or be downloaded from a randomly selected server. All copies of boootstrap are updated at the maximum of every six months.
 
 **Copies of Bootstrap from a specific server**
 
-* [http://mango.litecoinnode.org/bootstrap.dat](http://mango.litecoinnode.org/bootstrap.dat)
-* [http://apple.litecoinnode.org/bootstrap.dat](http://apple.litecoinnode.org/bootstrap.dat)
+* [http://mango.insacoinnode.org/bootstrap.dat](http://mango.insacoinnode.org/bootstrap.dat)
+* [http://apple.insacoinnode.org/bootstrap.dat](http://apple.insacoinnode.org/bootstrap.dat)
 
 **Randomly selected dopy of Bootstrap**
 
 This could be useful for use in scripts.
 
-* [http://bootstrap.litecoinnode.org/bootstrap.dat](http://bootstrap.litecoinnode.org/bootstrap.dat)
+* [http://bootstrap.insacoinnode.org/bootstrap.dat](http://bootstrap.insacoinnode.org/bootstrap.dat)
 	
 **Example usage in a (bash) Terminal**
 
-	wget http://bootstrap.litecoinnode.org/bootstrap.dat       //downloads bootstrap into current directory
+	wget http://bootstrap.insacoinnode.org/bootstrap.dat       //downloads bootstrap into current directory
 
 ### Importing the Blockchain
 Exit the Bitcoin client software if you have it running. Be sure not to have an actively used wallet in use. We are going to copy the download of the blockchain to the Bitcoin client data directory. You should run the client software at least once so it can generate the data directory. Copy the downloaded bootstrap.dat file into the Bitcoin data folder.

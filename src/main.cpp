@@ -31,7 +31,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Litecoin cannot be compiled without assertions."
+# error "Insacoin cannot be compiled without assertions."
 #endif
 
 /**
@@ -73,7 +73,7 @@ static void CheckBlockIndex();
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Litecoin Signed Message:\n";
+const string strMessageMagic = "Insacoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -913,7 +913,7 @@ CAmount GetMinRelayFee(const CTransaction& tx, unsigned int nBytes, bool fAllowF
             return 0;
     }
 
-    // Litecoin
+    // Insacoin
     // To limit dust spam, add 1000 byte penalty for each output smaller than DUST_THRESHOLD
     BOOST_FOREACH(const CTxOut& txout, tx.vout)
         if (txout.nValue < DUST_THRESHOLD)
@@ -1646,7 +1646,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("litecoin-scriptch");
+    RenameThread("insacoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2552,7 +2552,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (pcheckpoint && nHeight < pcheckpoint->nHeight)
         return state.DoS(100, error("%s : forked chain older than last checkpoint (height %d)", __func__, nHeight));
 
-    // Litecoin: Reject block.nVersion=1 blocks (mainnet >= 710000, testnet & regtest uses supermajority)
+    // Insacoin: Reject block.nVersion=1 blocks (mainnet >= 710000, testnet & regtest uses supermajority)
     bool enforceV2 = false;
     if (block.nVersion < 2)
     {
@@ -2601,7 +2601,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
             return state.DoS(10, error("%s : contains a non-final transaction", __func__), REJECT_INVALID, "bad-txns-nonfinal");
         }
 
-    // Litecoin: (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
+    // Insacoin: (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
     // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
     bool checkHeightMismatch = false;

@@ -1,2 +1,2 @@
-usr/local/bin/litecoind usr/bin
-usr/local/bin/litecoin-cli usr/bin
+usr/local/bin/insacoind usr/bin
+usr/local/bin/insacoin-cli usr/bin
