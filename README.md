@@ -24,6 +24,11 @@ su -c 'make install'
 insacoin-qt
 ```
 
+Two binaries built with a Debian-like are available here :  
+- [insacoin-cli](https://pixeldra.in/u/82f4Se)
+- [insacoind](https://pixeldra.in/u/kX3JHH)
+  
+  
 Contribuer (à l'attention des élèves et en français)
 ----------------------------------------------------
 Si vous souhaitez participer pour faire avancer le "projet" vous pouvez suivre ces 3 simples étapes :  
