@@ -40,7 +40,7 @@ git clone https://github.com/Crypto-lyon/INSAcoin
 ./configure
 make -j 4
 sudo make install
-
+```
   
 Contribuer (à l'attention des élèves et en français)
 ----------------------------------------------------
