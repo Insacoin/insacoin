@@ -52,12 +52,8 @@ $ brew install https://raw.github.com/mxcl/homebrew/master/Library/Formula/berke
 The rest of these commands are run inside brew interactive mode:
 ```
 $ brew install berkeley-db4
+$ brew link --force berkeley-db4
 ```
-then :
-
-
-    $ brew link --force berkeley-db4
-
 
 ### Building `insacoind`
 
@@ -68,7 +64,7 @@ then :
 
 2.  Build insacoind:
 
-        ./scripts/install_libdb4.8.sh
+        ./autogen.sh
         ./configure
         make
 
