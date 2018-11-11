@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Insacoin
+Comment=Insacoin P2P Cryptocurrency
+Exec=insacoin-qt %u
+Terminal=false
+Type=Application
+Icon=bitcoin128
+MimeType=x-scheme-handler/insacoin;
+Categories=Office;Finance;
+Name[en_US]=insacoin-qt.desktop
