@@ -703,12 +703,13 @@ Value getchaintxstats(const Array& params, bool fHelp)
 		);
 	
 	const CBlockIndex* pindex;
-	int blockcount = 30 * 24 * 60 * 60 / Params().TargetSpacing(); // By default: 1 month
+	int blockcount = 1000;//  30 * 24 * 60 * 60 / Params().TargetSpacing(); // By default: 1 month
     
 	if (params.size() > 0 && !params[0].is_null()) {
 		int32_t params[0];
 		blockcount = params[0];
-		print(blockcount);
+		std::cout<<blockcount<<std::endl;
+		std::cout<<params[0]<<std::endl;
 	}    
     
     bool havehash = params.size() > 1 && !params[1].is_null();
