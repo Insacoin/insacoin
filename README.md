@@ -31,13 +31,13 @@ Two binaries built with a Debian-like are available here :
   
 ## On macos (tested on 10.11.6):
 ```
-brew install autoconf automake libtool boost@1.59 miniupnpc openssl pkg-config protobuf qt berkeley-db4
+brew install autoconf automake libtool boost@1.59 --c++11 miniupnpc openssl pkg-config protobuf --c++11 qt5 berkeley-db4
 # If not linked in /usr/local/
 brew link boost@1.59 --force
 brew link --force berkeley-db4
 git clone https://github.com/Crypto-lyon/INSAcoin
 ./autogen.sh
-./configure
+./configure CXXFLAGS="-std=c++11"
 make -j 4
 sudo make install
 ```
