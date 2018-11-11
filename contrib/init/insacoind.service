@@ -1,0 +1,12 @@
+[Unit]
+Description=Insacoin daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/insacoind -daemon -conf=/home/darosior/.insacoin/insacoin.conf
+User=darosior
+Type=forking
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
