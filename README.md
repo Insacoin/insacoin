@@ -10,7 +10,8 @@ Insacoin is a coin forked from [Litecoin](https://github.com/litecoin-project/li
 
 Installation process
 --------------------
-On Debian 9 :
+  
+## On Debian 9 :
 ```
 git clone https://github.com/Crypto-lyon/INSAcoin && cd INSAcoin
 su -c 'apt install libssl1.0-dev libssl1.0.2 libssl1.1 libboost-all-dev miniupnpc build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils python3 software-properties-common libminiupnpc-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler wget git qt5-default && wget -qq https://raw.githubusercontent.com/Crypto-lyon/INSAcoin/master/cryptolyon/install_libdb4.8.sh && chmod +x install_libdb4.8.sh'
@@ -28,6 +29,18 @@ Two binaries built with a Debian-like are available here :
 - [insacoin-cli](https://pixeldra.in/u/82f4Se)
 - [insacoind](https://pixeldra.in/u/kX3JHH)
   
+## On macos (tested on 10.11.6):
+```
+brew install autoconf automake libtool boost@1.59 miniupnpc openssl pkg-config protobuf qt berkeley-db4
+# If not linked in /usr/local/
+brew link boost@1.59 --force
+brew link --force berkeley-db4
+git clone https://github.com/Crypto-lyon/INSAcoin
+./autogen.sh
+./configure
+make -j 4
+sudo make install
+```
   
 Contribuer (à l'attention des élèves et en français)
 ----------------------------------------------------
