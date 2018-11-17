@@ -12,6 +12,8 @@ Installation process
 --------------------
   
 ## On Debian 9 :
+  
+### Building from source :
 ```
 git clone https://github.com/Crypto-lyon/INSAcoin && cd INSAcoin
 su -c 'apt install libssl1.0-dev libssl1.0.2 libssl1.1 libboost-all-dev miniupnpc build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils python3 software-properties-common libminiupnpc-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler wget git qt5-default && wget -qq https://raw.githubusercontent.com/Crypto-lyon/INSAcoin/master/cryptolyon/install_libdb4.8.sh && chmod +x install_libdb4.8.sh'
@@ -24,10 +26,13 @@ make
 su -c 'make install'
 insacoin-qt
 ```
-
-Two binaries built with a Debian-like are available here :  
-- [insacoin-cli](https://pixeldra.in/u/82f4Se)
-- [insacoind](https://pixeldra.in/u/kX3JHH)
+  
+### Install binary
+```
+curl -O https://github.com/Crypto-lyon/INSAcoin/releases/download/v0.10/insacoin_0.10-1_amd64.deb
+dpkg -i insacoin_0.10-1_amd64.deb
+insacoin-qt
+```
   
 ## On macos (tested on 10.11.6):
 ```
@@ -43,24 +48,17 @@ make -j 4
 sudo make install
 ```
 Be sure to have xcode installed.
+
+
+Why insacoin ?
+--------------
+
+In order to teach the use of a node and how Bitcoin-like network actually works, [Crypto Lyon](https://crypto-lyon.fr) organized a series of meetup (called "from shiba to whale") in order to start a new network from scratch (insacoin) and learn by doing.
+If you want to know more about it :  
+- [The meetup group](https://www.meetup.com/Crypto-Lyon/)
+- [The (short) recap of the first session](https://medium.com/@darosior/from-shiba-to-lion-first-session-cab6b6f50bc9)
+- [Our Discord server](https://discordapp.com/invite/HRyH9va)
   
-Contribuer (à l'attention des élèves et en français)
-----------------------------------------------------
-Si vous souhaitez participer pour faire avancer le "projet" vous pouvez suivre ces 3 simples étapes :  
-- Faire les modifications en local sur votre machine
-- Compiler
-- Si tout est OK, submit une pull request [ici](https://help.github.com/articles/creating-a-pull-request/) et [ici](https://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/)  
-Si vous avez du mal avec l'idée de faire une pull request, vous pouvez pour le moment nous donner vos modifications pour qu'on les push.  
-
-**__Attention quand même__**  
-Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même réseau une fois les modifs compilées. Si vous êtes au moins deux à faire ça vous allez fork et devenir un réseau indépendant à-partir d'un certains moment, un nouveau coin mais qui partage une partie de l'histoire avec celui-ci (vous pourriez l'appeler INSAcoin cash).
-
-*_Quelques idées_*
-- Set une bloc reward aléatoire
-- Set un halving time différent
-- Mettre de meilleurs [images](https://github.com/Crypto-lyon/INSAcoin/tree/master/src/qt/res/images) que celles que je vais mettre
-- ...
-
 License
 -------
 
