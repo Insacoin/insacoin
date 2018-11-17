@@ -27,7 +27,7 @@ su -c 'make install'
 insacoin-qt
 ```
   
-### Install binary
+### Installing the package
 ```
 curl -O https://github.com/Crypto-lyon/INSAcoin/releases/download/v0.10/insacoin_0.10-1_amd64.deb
 dpkg -i insacoin_0.10-1_amd64.deb
@@ -48,7 +48,10 @@ make -j 4
 sudo make install
 ```
 Be sure to have xcode installed.
-
+  
+### Using binaries
+You can fetch a dmg image with binaries for daemon, cli, and GUI here :  
+`https://github.com/Crypto-lyon/INSAcoin/releases/download/v0.10/insacoin.dmg`
 
 Why insacoin ?
 --------------
