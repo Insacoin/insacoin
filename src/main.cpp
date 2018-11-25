@@ -1242,7 +1242,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
 
 CAmount GetBlockValue(int nHeight, const CAmount& nFees)
 {
-    CAmount nSubsidy = 50 * COIN;
+    CAmount nSubsidy = 42 * COIN;
     int halvings = nHeight / Params().SubsidyHalvingInterval();
 
     // Force block reward to zero when right shift is undefined.
@@ -2450,7 +2450,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
 {
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(), block.nBits))
-        return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
+        return state.DoS(42, error("CheckBlockHeader() : proof of work failed"),
                          REJECT_INVALID, "high-hash");
 
     // Check timestamp
