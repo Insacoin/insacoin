@@ -30,8 +30,8 @@ RUN apt update && \
 
 RUN git clone -b ${INSACOIN_VERSION} https://github.com/Crypto-lyon/INSAcoin /opt/INSAcoin
 
-RUN chmod +x /opt/INSAcoin/scripts/install_libdb4.8.sh && \
-	/opt/INSAcoin/scripts/install_libdb4.8.sh amd64
+RUN chmod +x /opt/INSAcoin/scripts/install_libdb4.8.sh
+RUN /opt/INSAcoin/scripts/install_libdb4.8.sh amd64
 
 WORKDIR /opt/INSAcoin/
 
