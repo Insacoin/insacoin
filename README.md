@@ -76,7 +76,12 @@ docker build --rm -t insacoin .
 Launch INSAcoin daemon :
 
 ```
+# create ~/.insacoin/insacoin.conf file with rpcuser and rpcpassword
+vim ~/.insacoin/insacoin.conf
+# run docker
 docker run -d -v ~/.insacoin:/root/.insacoin --name insacoin insacoin
+# or with docker-compose
+docker-compose up -d
 ```
 
 Using insacoin-cli :
