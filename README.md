@@ -61,6 +61,37 @@ Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même r�
 - Mettre de meilleurs [images](https://github.com/Crypto-lyon/INSAcoin/tree/master/src/qt/res/images) que celles que je vais mettre
 - ...
 
+Setup INSAcoin in a Docker container
+------
+
+### Building and running INSAcoin docker image
+
+Run the following commands to compile INSAcoin in Docker and build the image :
+
+```shell
+cd contrib/docker
+docker build --rm -t insacoin .
+```
+
+Launch INSAcoin daemon :
+
+```
+docker run -d -v ~/.insacoin:/root/.insacoin --name insacoin insacoin
+```
+
+Using insacoin-cli :
+
+```
+docker exec -it insacoin insacoin-cli getinfo
+```
+
+### Running INSAcoin UI
+
+```
+xhost +local:docker && docker run -ti --rm --name insacoin -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/.insacoin:/root/.insacoin insacoin insacoin-qt
+```
+
+
 License
 -------
 
