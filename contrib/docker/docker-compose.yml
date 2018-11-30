@@ -8,4 +8,4 @@ services:
       - "~/.insacoin:/root/.insacoin"
     ports:
       - 7332:7332
-    command: insacoind -txindex
+    command: insacoind -txindex -rpcallowip=172.17.0.0/16

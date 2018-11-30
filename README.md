@@ -89,7 +89,7 @@ docker run -d -v ~/.insacoin:/root/.insacoin \
        -p 7332:7332 \
        --name insacoin \
        insacoin \
-       insacoind -txindex
+       insacoind -txindex -rpcallowip=172.17.0.0/16
 # or with docker-compose
 docker-compose up -d
 ```

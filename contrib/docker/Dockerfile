@@ -45,6 +45,6 @@ RUN apt-get purge -y --auto-remove ca-certificates build-essential libtool autot
 # Port for RPC
 EXPOSE 7332
 #CMD ["insacoin-qt"]
-CMD ["insacoind","-txindex","-reindex"]
+CMD ["insacoind","-txindex","-reindex", "-rpcallowip=172.17.0.0/16"]
 
 
