@@ -77,9 +77,19 @@ Launch INSAcoin daemon :
 
 ```
 # create ~/.insacoin/insacoin.conf file with rpcuser and rpcpassword
-vim ~/.insacoin/insacoin.conf
+
+mkdir .insacoin || cat > .insacoin/insacoin.conf <<EOF
+rpcuser=bitcoinrpc
+rpcpassword=CHANGE_THIS
+txindex=1
+EOF
+
 # run docker
-docker run -d -v ~/.insacoin:/root/.insacoin --name insacoin insacoin
+docker run -d -v ~/.insacoin:/root/.insacoin \
+       -p 7332:7332 \
+       --name insacoin \
+       insacoin \
+       insacoind -txindex
 # or with docker-compose
 docker-compose up -d
 ```

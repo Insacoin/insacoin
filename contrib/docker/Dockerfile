@@ -42,6 +42,8 @@ RUN ./autogen.sh && \
 
 RUN apt-get purge -y --auto-remove ca-certificates build-essential libtool autotools-dev automake pkg-config bsdmainutils wget git
 
+# Port for RPC
+EXPOSE 7332
 #CMD ["insacoin-qt"]
 CMD ["insacoind","-txindex","-reindex"]
 

@@ -6,3 +6,6 @@ services:
     build: .
     volumes:
       - "~/.insacoin:/root/.insacoin"
+    ports:
+      - 7332:7332
+    command: insacoind -txindex
