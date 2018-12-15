@@ -43,23 +43,6 @@ make -j 4
 sudo make install
 ```
 Be sure to have xcode installed.
-  
-Contribuer (à l'attention des élèves et en français)
-----------------------------------------------------
-Si vous souhaitez participer pour faire avancer le "projet" vous pouvez suivre ces 3 simples étapes :  
-- Faire les modifications en local sur votre machine
-- Compiler
-- Si tout est OK, submit une pull request [ici](https://help.github.com/articles/creating-a-pull-request/) et [ici](https://hisham.hm/2016/01/01/how-to-make-a-pull-request-on-github-a-quick-tutorial/)  
-Si vous avez du mal avec l'idée de faire une pull request, vous pouvez pour le moment nous donner vos modifications pour qu'on les push.  
-
-**__Attention quand même__**  
-Si vous modifiez des règles de consensus, vous n'appartiendrez plus au même réseau une fois les modifs compilées. Si vous êtes au moins deux à faire ça vous allez fork et devenir un réseau indépendant à-partir d'un certains moment, un nouveau coin mais qui partage une partie de l'histoire avec celui-ci (vous pourriez l'appeler INSAcoin cash).
-
-*_Quelques idées_*
-- Set une bloc reward aléatoire
-- Set un halving time différent
-- Mettre de meilleurs [images](https://github.com/Crypto-lyon/INSAcoin/tree/master/src/qt/res/images) que celles que je vais mettre
-- ...
 
 Setup INSAcoin in a Docker container
 ------
