@@ -1,11 +1,29 @@
-version: '2'
+version: '3.3'
 
 services:
 
-  insacoin:
-    build: .
+  insacoin-core:
+    image: gnut3ll4/insacoin:0.10-headless 
+    build: insacoin-headless
     volumes:
       - "~/.insacoin:/root/.insacoin"
     ports:
       - 7332:7332
-    command: insacoind -txindex -rpcallowip=172.17.0.0/16
+      - 7333:7333
+      - 17332:17332
+      - 17333:17333
+      - 19444:19444
+    command: insacoind -txindex -server=1 -rpcallowip=172.18.0.0/16
+
+  insacoin-explorer:
+    image: gnut3ll4/insacoin-explorer:latest
+    build: insacoin-explorer
+    environment:
+      - IPSTACK_API_KEY=_change_me_
+      - RPC_HOST=insacoin-core
+    volumes:
+      - "~/.insacoin/insacoin.conf:/insacoin.conf:ro"
+    ports:
+      - 3002:3002
+    depends_on:
+      - insacoin-core      
