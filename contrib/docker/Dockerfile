@@ -1,6 +1,7 @@
 FROM debian:9
 
 ENV INSACOIN_VERSION=0.10
+WORKDIR /opt/INSAcoin/
 
 RUN apt update && \
 	apt install -y --no-install-recommends \
@@ -26,25 +27,28 @@ RUN apt update && \
 	wget \
 	git \
 	qt5-default \
-	libssl1.0-dev
-
-RUN git clone -b ${INSACOIN_VERSION} https://github.com/Crypto-lyon/INSAcoin /opt/INSAcoin
-
-RUN chmod +x /opt/INSAcoin/scripts/install_libdb4.8.sh
-RUN /opt/INSAcoin/scripts/install_libdb4.8.sh amd64
-
-WORKDIR /opt/INSAcoin/
-
-RUN ./autogen.sh && \
+	libssl1.0-dev && \
+	git clone -b ${INSACOIN_VERSION} https://github.com/Crypto-lyon/INSAcoin /opt/INSAcoin && \
+	chmod +x /opt/INSAcoin/scripts/install_libdb4.8.sh && \
+	/opt/INSAcoin/scripts/install_libdb4.8.sh amd64 && \
+	./autogen.sh && \
 	./configure && \ 
 	make -j 4 && \
-	make install
+	make install && \
+	apt-get purge -y --auto-remove ca-certificates build-essential libtool autotools-dev automake pkg-config bsdmainutils wget git
 
-RUN apt-get purge -y --auto-remove ca-certificates build-essential libtool autotools-dev automake pkg-config bsdmainutils wget git
-
-# Port for RPC
+#JSON/RPC Port
 EXPOSE 7332
-#CMD ["insacoin-qt"]
-CMD ["insacoind","-txindex","-reindex", "-rpcallowip=172.17.0.0/16"]
+
+#Peer to peer port
+EXPOSE 7333 
+
+#Testnet ports
+EXPOSE 17332 17333 
+
+#Regtest port
+EXPOSE 19444
+
+CMD ["insacoin-qt", "-txindex", "-rpcallowip=172.17.0.0/16", "-server=1"]
 
 
