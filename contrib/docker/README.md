@@ -35,7 +35,7 @@ xhost +local:docker && \
       -e DISPLAY=$DISPLAY \
       -v /tmp/.X11-unix:/tmp/.X11-unix \
       -v ~/.insacoin:/root/.insacoin \
-      insacoin \
+      gnut3ll4/insacoin:0.10-ui \
       insacoin-qt -server=1 -txindex=1 -rpcallowip=172.17.0.0/16
 ```
 
