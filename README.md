@@ -89,6 +89,26 @@ docker exec -it insacoin insacoin-cli getinfo
 xhost +local:docker && docker run -ti --rm --name insacoin -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/.insacoin:/root/.insacoin insacoin insacoin-qt
 ```
 
+Setup Autocompletion
+-------
+
+Run the following commands :
+
+```shell
+sudo cp contrib/insacoind.bash-completion /etc/bash_completion.d/
+source /etc/bash_completion.d/insacoind.bash-completion
+```
+
+If you are using docker and want to use insacoin-cli as if it was installed :
+
+```shell
+sudo cat > /usr/local/bin/insacoin-cli << EOF
+#!/bin/bash
+docker exec -it insacoin insacoin-cli $@
+EOF
+```
+
+
 
 License
 -------
