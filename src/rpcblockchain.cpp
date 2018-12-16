@@ -8,6 +8,7 @@
 #include "rpcserver.h"
 #include "sync.h"
 #include "util.h"
+#include "uint256.h"
 
 #include <stdint.h>
 
@@ -679,4 +680,68 @@ Value reconsiderblock(const Array& params, bool fHelp)
     }
 
     return Value::null;
+}
+
+Value getchaintxstats(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getchaintxstats ( nblocks blockhash )\n"
+            "\nCompute statistics about the total number and rate of transactions in the chain.\n"
+            "\nArguments:\n"
+            "1. nblocks      (numeric, optional) Size of the window in number of blocks (default: one month).\n"
+            "2. \"blockhash\"  (string, optional) The hash of the block that ends the window.\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"time\": xxxxx,        (numeric) The timestamp for the statistics in UNIX format.\n"
+            "  \"txcount\": xxxxx,     (numeric) The total number of transactions in the chain up to that point.\n"
+            "  \"txrate\": x.xx,       (numeric) The average rate of transactions per second in the window.\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getchaintxstats", "")
+            + HelpExampleRpc("getchaintxstats", "2016")
+		);
+	
+	const CBlockIndex* pindex;
+	int blockcount = 1000;//  30 * 24 * 60 * 60 / Params().TargetSpacing(); // By default: 1 month
+	if (params.size() > 0 && !params[0].is_null()) {
+		blockcount = atoi(params[0].get_str());
+	}
+    
+    bool havehash = params.size() > 1 && !params[1].is_null();
+    uint256 hash;
+    if (havehash) {
+    	hash = uint256(params[1].get_str());
+    }
+    
+    {
+        LOCK(cs_main);
+        if (havehash) {
+            auto it = mapBlockIndex.find(hash);
+            if (it == mapBlockIndex.end()) {
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block not found");
+            }
+            pindex = it->second;
+            if (!chainActive.Contains(pindex)) {
+                throw JSONRPCError(RPC_INVALID_PARAMETER, "Block is not in main chain");
+            }
+        } else {
+            pindex = chainActive.Tip();
+        }
+	}
+    
+    if (blockcount < 1 || blockcount >= pindex->nHeight) {
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid block count: should be between 1 and the block's height");
+	}
+	
+	const CBlockIndex* pindexPast = pindex->GetAncestor(pindex->nHeight - blockcount);
+    int nTimeDiff = pindex->GetMedianTimePast() - pindexPast->GetMedianTimePast();
+	int nTxDiff = pindex->nChainTx - pindexPast->nChainTx;
+	
+	Object ret;
+	ret.push_back(Pair("time", (int64_t)pindex->nTime));
+    ret.push_back(Pair("txcount", (int64_t)pindex->nChainTx));
+    ret.push_back(Pair("txrate", ((double)nTxDiff) / nTimeDiff));
+
+	return ret;
 }
