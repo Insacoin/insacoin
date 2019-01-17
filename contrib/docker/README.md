@@ -51,7 +51,7 @@ docker run -d --name insacoin \
    gnut3ll4/insacoin:0.10-headless
 ```
 
-### Launching INSAcoin core & explorer
+### Launching INSAcoin dev stack
 
 Set variables in docker-compose.yml, then run the following commands :
 
@@ -61,6 +61,14 @@ docker-compose build
 docker-compose pull
 
 docker-compose up
+```
+
+The `notebook` container will display a url with the token to be used to access the Jupyter notebook.
+
+If you need to add python dependencies to the notebook, add your dependency in the requirements.txt file and run :
+
+```shell
+docker-compose restart notebook
 ```
 
 

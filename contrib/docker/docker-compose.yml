@@ -13,7 +13,7 @@ services:
       - 17332:17332
       - 17333:17333
       - 19444:19444
-    command: insacoind -txindex -server=1 -rpcallowip=172.18.0.0/16
+    command: insacoind -txindex -server=1 -rpcallowip=172.0.0.0/8
 
   insacoin-explorer:
     image: gnut3ll4/insacoin-explorer:latest
@@ -26,4 +26,17 @@ services:
     ports:
       - 3002:3002
     depends_on:
-      - insacoin-core      
+      - insacoin-core
+
+  notebook:
+    image: jupyter/minimal-notebook
+    volumes:
+      - "./jupyter/requirements.txt:/requirements.txt"
+      - "./jupyter/entrypoint.sh:/entrypoint.sh"
+      - "./jupyter/data:/home/jovyan/work"
+      - "~/.insacoin/insacoin.conf:/home/jovyan/.insacoin/insacoin.conf:ro"
+    ports:
+      - 8888:8888
+    entrypoint: ["/entrypoint.sh"]
+    command: ["start-notebook.sh"]
+    
