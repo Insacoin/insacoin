@@ -54,12 +54,12 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
  */
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-	(  0, uint256("0x1952e403e8d57b1802ce37b7cc95a371a5627cc74b2b52794339e7cf4ca95ac7"))
+	(  0, uint256("0xa878d5dfe66734256d9ea55c081c22364db71ebbc62a338a48cedd091b61e0d0"))
 	;
 
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1537258510, // * UNIX timestamp of last checkpoint block
+        1549826144, // * UNIX timestamp of last checkpoint block
         0,   // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         1     // * estimated number of transactions per day after checkpoint
@@ -123,7 +123,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
          *   vMerkleTree: 4a5e1e
          */
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+        const char* pszTimestamp = "Shiba to Lion 02/14 : special session";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -134,13 +134,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1537258510;
+        genesis.nTime    = 1549826144;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2087313109;
+        genesis.nNonce   = 1926041;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x1952e403e8d57b1802ce37b7cc95a371a5627cc74b2b52794339e7cf4ca95ac7"));
-        assert(genesis.hashMerkleRoot == uint256("0xb453dee39da89d903c5b39154fa88e87939d19dc609b646030a6910ebea08a0b"));
+	assert(hashGenesisBlock == uint256("0xa878d5dfe66734256d9ea55c081c22364db71ebbc62a338a48cedd091b61e0d0"));
+        assert(genesis.hashMerkleRoot == uint256("0xaba6a93f59b16e4e6945e871b9d21ba0027ea81b4e3205bd4fc98f3070e52390"));
 
         vSeeds.push_back(CDNSSeedData("darosior", "seednode1.insacoin.org"));
 	vSeeds.push_back(CDNSSeedData("bilbud", "seednode2.insacoin.org"));
